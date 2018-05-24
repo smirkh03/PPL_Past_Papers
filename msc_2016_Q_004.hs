@@ -11,7 +11,39 @@ which years are leap years:
 For example, 2004 was a leap year (divisible by 4), 1900 was not a leap year (divisible by 100), 
 and 2000 was a leap year (divisible by 400).
 -}
+leapYear :: Int -> Bool
+leapYear x =
+  if (x `mod` 400 == 0) then True
+  else
+       if (x `mod` 100 == 0) then False
+       else if (x `mod` 4 == 0) then True
+            else False   
 
+lp1Test =
+  leapYear 2004 == True &&
+  leapYear 1900 == False &&
+  leapYear 2000 == True
+
+leapYear2 :: Int -> Bool
+leapYear2 x
+  | x `mod` 400 == 0 = True
+  | x `mod` 100 == 0 = False
+  | x `mod` 4 == 0 = True
+  | otherwise = False
+
+lp2Test =
+  leapYear2 2004 == True &&
+  leapYear2 1900 == False &&
+  leapYear2 2000 == True
+
+leapYearModelSolution :: Int -> Bool
+leapYearModelSolution y = ((y `mod` 4 == 0) && (y `mod` 100 /= 0))
+               || (y `mod` 400 == 0)
+
+lp3Test =
+  leapYearModelSolution 2004 == True &&
+  leapYearModelSolution 1900 == False &&
+  leapYearModelSolution 2000 == True
 
 {-
 4 - part (b)
