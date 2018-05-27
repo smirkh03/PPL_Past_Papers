@@ -90,3 +90,5 @@
 (f 0 '())
 (f 0 '(7))
 
+;; TODO: write funcion with zip equivalent
+;;       update f by removing xs variable
